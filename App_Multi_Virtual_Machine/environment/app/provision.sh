@@ -3,6 +3,9 @@
 # Update the sources list
 sudo apt-get update -y
 
+# Upgrade any packages available
+sudo apt-get upgrade -y
+
 # install git
 sudo apt-get install git -y
 
