@@ -26,10 +26,36 @@ sudo npm install pm2 -g
 
 sudo apt-get install nginx -y
 
-# finally, restart the nginx service so the new config takes hold
-sudo service nginx restart
 
-# Missing some automation here to start the servers
+
+# Unlink default configuration file
+sudo unlink /etc/nginx/sites-enabled/default 
+sudo rm /etc/nginx/sites-available/default
+# Create a new configuration file
+# cd /etc/nginx/sites-available
+# sudo touch reverse_proxy.conf
+
+
+# source /etc/nginx/sites-available/reverse_proxy.config
+sudo cp /home/ubuntu/nginx_config/reverse_proxy.conf /etc/nginx/sites-available/reverse_proxy.conf
+
+sudo ln -s /etc/nginx/sites-available/reverse_proxy.conf /etc/nginx/sites-enabled/reverse_proxy.conf
+
+
+
+# finally, restart the nginx service so the new config takes hold
+sudo systemctl restart nginx
 cd /home/ubuntu/app
 
+sudo npm install
+
 pm2 start app.js
+
+
+# # finally, restart the nginx service so the new config takes hold
+# sudo service nginx restart
+
+# # Missing some automation here to start the servers
+# cd /home/ubuntu/app
+
+# pm2 start app.js
