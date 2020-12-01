@@ -30,16 +30,13 @@ sudo apt-get install nginx -y
 
 # Unlink default configuration file
 sudo unlink /etc/nginx/sites-enabled/default 
-sudo rm /etc/nginx/sites-available/default
-# Create a new configuration file
-# cd /etc/nginx/sites-available
-# sudo touch reverse_proxy.conf
 
+sudo rm /etc/nginx/sites-available/default
 
 # source /etc/nginx/sites-available/reverse_proxy.config
-sudo cp /home/ubuntu/nginx_config/reverse_proxy.conf /etc/nginx/sites-available/reverse_proxy.conf
+sudo cp /homenginx-config/reverse-proxy.conf /etc/nginx/sites-available/reverse-proxy.conf
 
-sudo ln -s /etc/nginx/sites-available/reverse_proxy.conf /etc/nginx/sites-enabled/reverse_proxy.conf
+sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
 
 
 
