@@ -14,6 +14,7 @@ This repo will be a dev env you can copy and set up by running vagrant up.
 4. 
 ### Getting set up/ Pre Requisits
 * set up vagrant
+* ruby
 
 ### Running the Environment
 ### Running the tests
