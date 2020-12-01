@@ -25,14 +25,30 @@ This repo will be a dev env you can copy and set up by running vagrant up.
 
 
 ## Instructions
-1. Clone this repo
-2. Run `vagrant up`
-3. Go to `development.local:3000` or `192.168.10.100:3000`
-4. 
-### Getting set up/ Pre Requisits
-* set up vagrant
-* ruby
-* Vagrant
+### Running the app
+1. First of all, clone this repo into your machine
+2. Go to where your vagrant file is in your newly made directory.
+3. Run `vagrant up`
+4. Go to `development.local` or `192.168.10.100` in your web browswer to see the app.
+### Testing It
+1. Navigate to the `/tests` directory.
+2. Run `rake spec` to see whether the tests have passed or not.
+    - *Remember* - you can use `rake spec:app` or `rake spec:db` in order to test either the app or database on their own.
+3. Once this is done, ensure that this is pushed to GitHub.
+    - Create a new repository on GitHub.
+    - Delete `.git` if necessary with `rm -rf .git` using the terminal.
+    - Follow the instructions on your new GitHub repo.
+
+## First Job on Jenkins
+1. First we want to go into jenkins and click `New Item`.
+2. Name the job and select `Freestyle Project`.
+3. **General:**
+    - Give the job a logical description.
+    - Tick the `Discard old builds` box and set the `Max number of builds to keep` at 2 (Helps Jenkins with capacity)
+    - Tick `GithHub project` and paste the URL of the repo that you are using.
+4. **Office 365 Connector:**
+    - Paste the notification webhook by going into the specific channel in Microsoft Teams.
+    
 
 ### Running the Environment
 ### Running the tests
