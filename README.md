@@ -48,7 +48,33 @@ This repo will be a dev env you can copy and set up by running vagrant up.
     - Tick `GithHub project` and paste the URL of the repo that you are using.
 4. **Office 365 Connector:**
     - Paste the notification webhook by going into the specific channel in Microsoft Teams.
-    
+    - You should be able to see three dots in the top right corner. When you do, click on them.
+    - Create a new webhook with a conventional name then you should see a URL to copy.
+    - Once you have copied the URL from Teams, paste it in the URL box in Jenkins and type the name you gave to the connector.
+5. **Source Code Management:**
+    - Select `Git`
+    - In you repo on GitHub, click on `Code` and then `SSH`. After this, copy the URL and paste it in the `Repository URL` section in Jenkins.
+    - SSH Keys with Jenkins and GitHub
+        - Navigate to the directory where you can find your SSH keys. `cd ~/.ssh`
+        - Generate a new SSH key. `ssh-keygen -t ed25519`
+        - When prompted, enter the file name to save the new key into.
+        - On GitHub, go to Settings --> SSH and GPG keys --> New SSH Key. This is in order to add the private key (file without .pub extension)
+        - Add the public key (filel with .pub extension) to Jenkins by clicking `Add`
+        - Specify the branch to build with (*/dev) in the `Branches to build` section.
+6. **Build Triggers:**
+    - Tick `GitHub hook trigger for GITScm polling` to make jenkins build automatically everytime you push some changes to GitHun.
+7. **Build Environment**
+    - Tick the box where it says `Provide Node & npm bin/folder to PATH
+8. **Build:**
+    - Add a build step with the `Execute shell` option
+    - Inside it you want to put in the following commands:
+        - `cd App_Multi_Virtual_Machine/app`
+        - `npm install`
+        - `npm test`
+9. Finally `save`
+10. Now Jenkins will automatically build and test your code once you push to your specified branch.
+
+        
 
 ### Running the Environment
 ### Running the tests
