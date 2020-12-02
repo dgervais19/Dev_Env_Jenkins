@@ -74,7 +74,34 @@ This repo will be a dev env you can copy and set up by running vagrant up.
 9. Finally `save`
 10. Now Jenkins will automatically build and test your code once you push to your specified branch.
 
-        
+## Second Job
+Now that the code has been tested, the next step is to make Jenkins automatically merge the `*/dev` branch into the `*/main` branch and push to github.
 
-### Running the Environment
-### Running the tests
+1. Create another job on Jenkins by clicking `New Item` on the Dashboard.
+2. Name the job and select `Freestyle Project`.
+3. **General:**
+    - Give the job a logical description.
+    - Tick the `Discard old builds` box and set the `Max number of builds to keep` at 2 (Helps Jenkins with capacity)
+    - Tick `GithHub project` and paste the URL of the repo that you are using.
+4. **Office 365 Connector:**
+    - Paste the notification webhook by going into the specific channel in Microsoft Teams.
+    - You should be able to see three dots in the top right corner. When you do, click on them.
+    - Create a new webhook with a conventional name then you should see a URL to copy.
+    - Once you have copied the URL from Teams, paste it in the URL box in Jenkins and type the name you gave to the connector.
+5. **Source Code Management:**
+    - Select `Git`
+    - In you repo on GitHub, click on `Code` and then `SSH`. After this, copy the URL and paste it in the `Repository URL` section in Jenkins.
+    - Select the public key that was created in the first job.
+    - Specify which brand you want to build
+    - Go to `Additional Behaviours` and select `Merge before build`
+    - Set the `Name of repository` to `origin`.
+    - Set the `Branch to merge to` section to `main` or `master` depending on what you have named it.
+6. **Build Triggers:**
+    - Tick the `Build after other projects are built` so that Jenkins can merge and push everytime a build is successful.
+    - In the `Projects to watch` section, enter the name of your first job.
+    - Tick `Trigger only if build is stable`
+7. **Post-build Actions:**
+    - Click the dropdown menue, `Add post-build section` and select `Git Publisher`
+    - Tick `Push only if the build succeeds`
+    - Tick `Merge Results`
+8. Finally save this
