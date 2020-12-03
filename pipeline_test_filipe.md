@@ -2,3 +2,4 @@
 
 scp -i ~/.ssh/eng74donovanawskey.pem -r app ubuntu@34.253.75.97:~/ubuntu/provision.sh
 
+Testing to see if jenkins connects to AWS
