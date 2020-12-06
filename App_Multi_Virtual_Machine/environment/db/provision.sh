@@ -2,7 +2,6 @@
 
 # Update and upgrade any packages
 sudo apt-get update
-sudo apt-get upgrade
 
 # import a public GPG Key for MongoDB specifiying the version
 wget -qO - https://www.mongodb.org/static/pgp/server-3.2.asc | sudo apt-key add -
@@ -20,9 +19,10 @@ echo "mongodb-org-shell hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
-sudo sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /home/environment/mongod.conf
 
-sudo systemctl start mongod
 sudo systemctl enable mongod
+sudo systemctl start mongod
+
 
 

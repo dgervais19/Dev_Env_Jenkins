@@ -29,7 +29,9 @@ sudo npm install pm2 -g
 
 sudo apt-get install nginx -y
 
+cd ..
 
+cd ..
 
 # Unlink default configuration file
 sudo unlink /etc/nginx/sites-enabled/default 
