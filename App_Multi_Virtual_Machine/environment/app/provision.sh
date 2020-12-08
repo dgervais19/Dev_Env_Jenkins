@@ -39,7 +39,7 @@ sudo unlink /etc/nginx/sites-enabled/default
 sudo rm /etc/nginx/sites-available/default
 
 # source /etc/nginx/sites-available/reverse_proxy.config
-sudo cp /home/nginx-config/reverse-proxy.conf /etc/nginx/sites-available/reverse-proxy.conf
+sudo cp /home/ubuntu/nginx-config/reverse-proxy.conf /etc/nginx/sites-available/reverse-proxy.conf
 
 sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
 

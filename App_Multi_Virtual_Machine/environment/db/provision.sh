@@ -19,7 +19,7 @@ echo "mongodb-org-shell hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
-sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /home/environment/mongod.conf
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /home/ubuntu/environment/mongod.conf
 
 sudo systemctl enable mongod
 sudo systemctl start mongod
